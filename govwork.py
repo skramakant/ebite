@@ -6,6 +6,7 @@ from urllib.parse import urlparse
 import os
 import twitter
 from http.client import IncompleteRead
+from dbop import SQLiteDB as db 
 
 import time
 
@@ -13,6 +14,8 @@ os.chdir(r"/home/ramakant/Desktop/Twitter_GovWok/")
 
 current_milli_time = lambda: int(round(time.time() * 1000))
 
+
+conn = db.create_connection('ebite.sqlite')
 
 def getfilename(url):
 	url_path = urlparse(url).path
@@ -88,138 +91,7 @@ i=0
 
 UserListName = []
 for user in api.GetFriends():
-	# print(user)
 	UserListName.append(user.screen_name)
-# print(UserListName)
-# print([u.name for u in users])
-
-# for line in api.GetStreamFilter(track=None,follow = UserList, languages=LANGUAGES):
-# 	print(line['user']['screen_name'])
-	# if 'retweeted_status' in line:
-	# 	print('retweet')
-
-
-# while(1):
-# 	try:
-# 		line = api.GetStreamFilter(track=None,follow = UserListIDs, languages=None)
-# 		screenName = ''
-# 		if 'user' in line:
-# 			screenName = line['user']['screen_name']
-# 			# print(screenName) 
-
-# 		if 'retweeted_status' in line:
-# 			# print(line['extended_entities'])
-# 			retweet = line['retweeted_status']
-# 			screenName = retweet['user']['screen_name']
-
-# 			if 'user' in retweet:
-# 				# if retweet['user']['screen_name'] in UserListName:
-# 				if 'extended_tweet' in retweet:
-# 					retweet = line['retweeted_status']['extended_tweet']
-# 					if 'extended_entities' in retweet:
-# 						# print(line['extended_entities'])
-# 						print("HAVE MEDIA in extended_tweet")
-# 						medias = retweet['extended_entities']['media']
-# 						for media in medias:
-# 							url = media['media_url_https']
-# 							# print(url)
-# 							# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
-
-# 							if(media['type'] == 'video'):
-# 								print("VIDEO FOUND")
-# 								videoInfo = media['video_info']
-
-# 								bitrate = -100
-# 								for vurl in videoInfo['variants']:
-# 									if 'bitrate' in vurl:
-# 										if(bitrate < vurl['bitrate']):
-# 											bitrate = vurl['bitrate']
-
-# 								for vurl in videoInfo['variants']:
-# 									if 'bitrate' in vurl:
-# 										if(bitrate == vurl['bitrate']):
-# 											video_url = vurl['url']
-# 											filename = getfilename(video_url)
-# 											path = 'videos/'+screenName + "_" + filename
-# 											if(os.path.exists(path) == True):
-# 												print("Video File Already Exists {} {}".format(screenName,filename))
-# 											else:
-# 												print("video downloding")
-# 												urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
-
-# 								# video_url = videoInfo['variants'][3]['url']
-# 								# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
-# 							else:
-# 								filename = getfilename(url)
-# 								path = 'images/'+screenName + "_" + filename
-# 								if(os.path.exists(path) == True):
-# 									print("Image File Already Exists {} {}".format(screenName,filename))
-# 								else:
-# 									urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)									
-# 							i=i+1
-# 					else:
-# 						print("no media extended_tweet")		
-
-
-# 		if 'extended_entities' in line:
-# 			# print(line['extended_entities'])
-# 			print("HAVE MEDIA in extended_entities")
-# 			medias = line['extended_entities']['media']
-# 			for media in medias:
-# 				url = media['media_url_https']
-# 				# print(url)
-# 				# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
-
-# 				if(media['type'] == 'video'):
-# 					print("VIDEO FOUND")
-# 					videoInfo = media['video_info']
-
-# 					bitrate = -100
-# 					for vurl in videoInfo['variants']:
-# 						if 'bitrate' in vurl:
-# 							if(bitrate < vurl['bitrate']):
-# 								bitrate = vurl['bitrate']
-
-# 					for vurl in videoInfo['variants']:
-# 						if 'bitrate' in vurl:
-# 							if(bitrate == vurl['bitrate']):
-# 								video_url = vurl['url']
-# 								filename = getfilename(video_url)
-# 								path = 'videos/'+screenName + "_" + filename
-# 								if(os.path.exists(path) == True):
-# 									print("Video File Already Exists {} {}".format(screenName,filename))
-# 								else:
-# 									urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
-
-
-# 					# video_url = videoInfo['variants'][3]['url']
-# 					# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
-# 				else:
-# 					filename = getfilename(url)
-# 					path = 'images/'+screenName + "_" + filename
-# 					if(os.path.exists(path) == True):
-# 						print("Image File Already Exists {} {}".format(screenName,filename))
-# 					else:
-# 						urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)					
-
-# 				i=i+1
-# 		else:
-# 			print("no extended_entities")
-
-
-# 		print(i)
-
-# 	except requests.IncompleteRead as err:
-# 		print(err)
-# 	except urllib.HTTPError as err:
-# 		if(err.code == 404):
-# 			print("NOT FOUND 404")
-# 	except urllib3.ProtocolError as err:
-# 		print(err)
-# 	except requests.ChunkedEncodingError as err:
-# 		print(err)
-	
-
 
 while(1):
 	try:	
@@ -232,12 +104,12 @@ while(1):
 
 			if 'retweeted_status' in line:
 				# print(line['extended_entities'])
-				retweet = line['retweeted_status']
-				screenName = retweet['user']['screen_name']
+				tweet = line['retweeted_status']
+				screenName = tweet['user']['screen_name']
 
-				if 'user' in retweet:
+				if 'user' in tweet:
 					# if retweet['user']['screen_name'] in UserListName:
-					if 'extended_tweet' in retweet:
+					if 'extended_tweet' in tweet:
 						retweet = line['retweeted_status']['extended_tweet']
 						if 'extended_entities' in retweet:
 							# print(line['extended_entities'])
@@ -278,14 +150,22 @@ while(1):
 									if(os.path.exists(path) == True):
 										print("Image File Already Exists {} {}".format(screenName,filename))
 									else:
-										urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)									
+										db.create_photos_table(conn)
+										localurl = 'images/'+screenName + "_" + filename
+										ttext = retweet['full_text']
+										date = tweet['created_at']
+										photo = (str(url),localurl,str(ttext),screenName,date)
+										rowid = db.insert_photo(conn,photo)
+										print("rowid",rowid)
+										# urllib.request.urlretrieve(url,localurl)									
 								i=i+1
 						else:
 							print("no media extended_tweet")		
 
 
-			if 'extended_entities' in line:
+			elif 'extended_entities' in line:
 				# print(line['extended_entities'])
+				print(line)
 				print("HAVE MEDIA in extended_entities")
 				medias = line['extended_entities']['media']
 				for media in medias:
@@ -323,7 +203,23 @@ while(1):
 						if(os.path.exists(path) == True):
 							print("Image File Already Exists {} {}".format(screenName,filename))
 						else:
-							urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)					
+							# urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)
+							db.create_photos_table(conn)
+							localurl = 'images/'+screenName + "_" + filename
+							ttext = ''
+							if "full_text" in line['extended_entities']:
+								ttext = line['extended_entities']['full_text']
+							if "text" in line['extended_entities']:
+								ttext = line['extended_entities']['text']
+							date =''
+							if 'user' in line['extended_entities']:
+								date = line['extended_entities']['user']['created_at']
+							if 'created_at' in line['extended_entities']:
+								date = line['extended_entities']['created_at']
+							photo = (str(url),localurl,str(ttext),screenName,date)
+							rowid = db.insert_photo(conn,photo)
+							print("rowid",rowid)
+							# urllib.request.urlretrieve(url,localurl)					
 
 					i=i+1
 			else:
@@ -340,5 +236,6 @@ while(1):
 		print(err)
 	except requests.ChunkedEncodingError as err:
 		print(err)
+db.closedb(conn)
 
 
