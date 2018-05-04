@@ -1,0 +1,344 @@
+from __future__ import print_function
+import json
+import urllib.request
+import urllib3
+from urllib.parse import urlparse
+import os
+import twitter
+from http.client import IncompleteRead
+
+import time
+
+os.chdir(r"/home/ramakant/Desktop/Twitter_GovWok/")
+
+current_milli_time = lambda: int(round(time.time() * 1000))
+
+
+def getfilename(url):
+	url_path = urlparse(url).path
+	filename = os.path.basename(url_path)
+	return filename
+
+
+# //https://github.com/bear/python-twitter
+# https://python-twitter.readthedocs.io/en/latest/rate_limits.html
+
+api = twitter.Api(consumer_key='TpECOVMlBvIJFKrqgIO85wN9h',
+                  consumer_secret='bLhuvRueRqbF4Ay3DP8g0E3PacAonVO21OFzF4exi6o18nCSdD',
+                  access_token_key='391328480-nzMffB2eAUJCPTtaYtmc0RmNgqg6zJc9uBo2QueU',
+                  access_token_secret='8qtH2fGLY2r7JoFk2vLXuRuTULUqhuqzyFwM6kZV7L0Sq',
+                  sleep_on_rate_limit=True)
+
+# users = api.GetFriends()
+
+# # print([u.screen_name for u in users])
+
+# for user in users:
+# 	#parsed = json.loads(str(user))
+# 	#print(json.dumps(parsed,indent=4, sort_keys=True))
+# 	print(user.screen_name)
+
+
+USERS = ['@narendramodi','@BJP4India', '@BJP4UP', '@UPGovt', '@narendramodi_in', 
+'@PiyushGoyal', '@PiyushGoyalOffc', '@myogiadityanath','@RailMinIndia','@MoHFW_INDIA',
+'@TexMinIndia','@HRDMinistry','@HMOIndia',
+'@CimGOI','@manojsinhabjp','@Rao_InderjitS','@DVSBJP','@shripadynaik','@rsprasad',
+'@RadhamohanBJP','@arunjaitley','@dpradhanbjp',
+'@Gen_VKSingh','@MVenkaiahNaidu','@umasribharti','@rajnathsingh',
+'@PiyushGoyal','@PrakashJavdekar','@jualoram','@PMOIndia',
+'@KalrajMishra','@AnanthKumar_BJP','@PIB_India','@SushmaSwaraj',
+'@DrJitendraSingh','@sureshpprabhu','@smritiirani','@nitin_gadkari',
+'@drharshvardhan','@Kiren_Rijiju','@Ra_THORe','@nsitharaman',
+'@tourismgoi','@MinOfCultureGoI','@incredibleindia','@incredibleindia',
+'@uptourismgov','@GujaratTourism','@APTDCofficial','@startupindia',
+'@makeinindia','@mygovindia','@NITIAayog','@rashtrapatibhvn','@MIB_India',
+'@MinistryWCD','@MinOfPower','@minmsme','@investindia','@MSDESkillIndia',
+'@NSDCINDIA','@grameenvidyut','@mnreindia','@GoI_MeitY','@UIDAI','@DoT_India','@CSCegov_',
+'@PMGDISHA','@NIELITIndia','@NICMeity','@DIPPGOI','@MinOfCultureGoI','@AgriGoI',
+'@YASMinistry','@DIPPGOI','@MSJEGOI','@MORTHIndia','@LabourMinistry','@Electronics_GoI','@MOFPI_GOI',
+'@IncomeTaxIndia','@moefcc','@DRDO_India','@IndiaPostOffice',
+'@DataPortalIndia','@SwachhBharatGov','@DoC_GoI','@dgftindia','socialpwds','@MinistryWCD']
+
+myuser_id = '391328480'
+MYUSER_ID = ['391328480']
+
+
+# Languages to filter tweets by is a list. This will be joined by Twitter
+# to return data mentioning tweets only in the english language.
+LANGUAGES = ['en']
+
+# UserListIDs = open("../output.txt").readlines()
+
+UserListIDs = []
+
+for ids in api.GetFriendIDs():
+	UserListIDs.append(str(ids))
+
+UserListIDs.append(myuser_id)
+print(len(UserListIDs))
+# print(UserListIDs)
+
+
+i=0
+
+# for line in api.GetFriendIDs():#GetFriends(),GetFriendIDs()
+# 	parsed = json.loads(str(line))
+# 	print(json.dumps(parsed,indent=4, sort_keys=True))
+
+
+UserListName = []
+for user in api.GetFriends():
+	# print(user)
+	UserListName.append(user.screen_name)
+# print(UserListName)
+# print([u.name for u in users])
+
+# for line in api.GetStreamFilter(track=None,follow = UserList, languages=LANGUAGES):
+# 	print(line['user']['screen_name'])
+	# if 'retweeted_status' in line:
+	# 	print('retweet')
+
+
+# while(1):
+# 	try:
+# 		line = api.GetStreamFilter(track=None,follow = UserListIDs, languages=None)
+# 		screenName = ''
+# 		if 'user' in line:
+# 			screenName = line['user']['screen_name']
+# 			# print(screenName) 
+
+# 		if 'retweeted_status' in line:
+# 			# print(line['extended_entities'])
+# 			retweet = line['retweeted_status']
+# 			screenName = retweet['user']['screen_name']
+
+# 			if 'user' in retweet:
+# 				# if retweet['user']['screen_name'] in UserListName:
+# 				if 'extended_tweet' in retweet:
+# 					retweet = line['retweeted_status']['extended_tweet']
+# 					if 'extended_entities' in retweet:
+# 						# print(line['extended_entities'])
+# 						print("HAVE MEDIA in extended_tweet")
+# 						medias = retweet['extended_entities']['media']
+# 						for media in medias:
+# 							url = media['media_url_https']
+# 							# print(url)
+# 							# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
+
+# 							if(media['type'] == 'video'):
+# 								print("VIDEO FOUND")
+# 								videoInfo = media['video_info']
+
+# 								bitrate = -100
+# 								for vurl in videoInfo['variants']:
+# 									if 'bitrate' in vurl:
+# 										if(bitrate < vurl['bitrate']):
+# 											bitrate = vurl['bitrate']
+
+# 								for vurl in videoInfo['variants']:
+# 									if 'bitrate' in vurl:
+# 										if(bitrate == vurl['bitrate']):
+# 											video_url = vurl['url']
+# 											filename = getfilename(video_url)
+# 											path = 'videos/'+screenName + "_" + filename
+# 											if(os.path.exists(path) == True):
+# 												print("Video File Already Exists {} {}".format(screenName,filename))
+# 											else:
+# 												print("video downloding")
+# 												urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+
+# 								# video_url = videoInfo['variants'][3]['url']
+# 								# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
+# 							else:
+# 								filename = getfilename(url)
+# 								path = 'images/'+screenName + "_" + filename
+# 								if(os.path.exists(path) == True):
+# 									print("Image File Already Exists {} {}".format(screenName,filename))
+# 								else:
+# 									urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)									
+# 							i=i+1
+# 					else:
+# 						print("no media extended_tweet")		
+
+
+# 		if 'extended_entities' in line:
+# 			# print(line['extended_entities'])
+# 			print("HAVE MEDIA in extended_entities")
+# 			medias = line['extended_entities']['media']
+# 			for media in medias:
+# 				url = media['media_url_https']
+# 				# print(url)
+# 				# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
+
+# 				if(media['type'] == 'video'):
+# 					print("VIDEO FOUND")
+# 					videoInfo = media['video_info']
+
+# 					bitrate = -100
+# 					for vurl in videoInfo['variants']:
+# 						if 'bitrate' in vurl:
+# 							if(bitrate < vurl['bitrate']):
+# 								bitrate = vurl['bitrate']
+
+# 					for vurl in videoInfo['variants']:
+# 						if 'bitrate' in vurl:
+# 							if(bitrate == vurl['bitrate']):
+# 								video_url = vurl['url']
+# 								filename = getfilename(video_url)
+# 								path = 'videos/'+screenName + "_" + filename
+# 								if(os.path.exists(path) == True):
+# 									print("Video File Already Exists {} {}".format(screenName,filename))
+# 								else:
+# 									urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+
+
+# 					# video_url = videoInfo['variants'][3]['url']
+# 					# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
+# 				else:
+# 					filename = getfilename(url)
+# 					path = 'images/'+screenName + "_" + filename
+# 					if(os.path.exists(path) == True):
+# 						print("Image File Already Exists {} {}".format(screenName,filename))
+# 					else:
+# 						urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)					
+
+# 				i=i+1
+# 		else:
+# 			print("no extended_entities")
+
+
+# 		print(i)
+
+# 	except requests.IncompleteRead as err:
+# 		print(err)
+# 	except urllib.HTTPError as err:
+# 		if(err.code == 404):
+# 			print("NOT FOUND 404")
+# 	except urllib3.ProtocolError as err:
+# 		print(err)
+# 	except requests.ChunkedEncodingError as err:
+# 		print(err)
+	
+
+
+while(1):
+	try:	
+		for line in api.GetStreamFilter(track=None,follow = UserListIDs, languages=None):
+			# print(line)
+			screenName = ''
+			if 'user' in line:
+				screenName = line['user']['screen_name']
+				# print(screenName) 
+
+			if 'retweeted_status' in line:
+				# print(line['extended_entities'])
+				retweet = line['retweeted_status']
+				screenName = retweet['user']['screen_name']
+
+				if 'user' in retweet:
+					# if retweet['user']['screen_name'] in UserListName:
+					if 'extended_tweet' in retweet:
+						retweet = line['retweeted_status']['extended_tweet']
+						if 'extended_entities' in retweet:
+							# print(line['extended_entities'])
+							print("HAVE MEDIA in extended_tweet")
+							medias = retweet['extended_entities']['media']
+							for media in medias:
+								url = media['media_url_https']
+								# print(url)
+								# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
+
+								if(media['type'] == 'video'):
+									print("VIDEO FOUND")
+									videoInfo = media['video_info']
+
+									bitrate = -100
+									for vurl in videoInfo['variants']:
+										if 'bitrate' in vurl:
+											if(bitrate < vurl['bitrate']):
+												bitrate = vurl['bitrate']
+
+									for vurl in videoInfo['variants']:
+										if 'bitrate' in vurl:
+											if(bitrate == vurl['bitrate']):
+												video_url = vurl['url']
+												filename = getfilename(video_url)
+												path = 'videos/'+screenName + "_" + filename
+												if(os.path.exists(path) == True):
+													print("Video File Already Exists {} {}".format(screenName,filename))
+												else:
+													print("video downloding")
+													urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+
+									# video_url = videoInfo['variants'][3]['url']
+									# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
+								else:
+									filename = getfilename(url)
+									path = 'images/'+screenName + "_" + filename
+									if(os.path.exists(path) == True):
+										print("Image File Already Exists {} {}".format(screenName,filename))
+									else:
+										urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)									
+								i=i+1
+						else:
+							print("no media extended_tweet")		
+
+
+			if 'extended_entities' in line:
+				# print(line['extended_entities'])
+				print("HAVE MEDIA in extended_entities")
+				medias = line['extended_entities']['media']
+				for media in medias:
+					url = media['media_url_https']
+					# print(url)
+					# urllib.request.urlretrieve(url,'images/'+screenName + "_" + str(i) + ".jpg")
+
+					if(media['type'] == 'video'):
+						print("VIDEO FOUND")
+						videoInfo = media['video_info']
+
+						bitrate = -100
+						for vurl in videoInfo['variants']:
+							if 'bitrate' in vurl:
+								if(bitrate < vurl['bitrate']):
+									bitrate = vurl['bitrate']
+
+						for vurl in videoInfo['variants']:
+							if 'bitrate' in vurl:
+								if(bitrate == vurl['bitrate']):
+									video_url = vurl['url']
+									filename = getfilename(video_url)
+									path = 'videos/'+screenName + "_" + filename
+									if(os.path.exists(path) == True):
+										print("Video File Already Exists {} {}".format(screenName,filename))
+									else:
+										urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+
+
+						# video_url = videoInfo['variants'][3]['url']
+						# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
+					else:
+						filename = getfilename(url)
+						path = 'images/'+screenName + "_" + filename
+						if(os.path.exists(path) == True):
+							print("Image File Already Exists {} {}".format(screenName,filename))
+						else:
+							urllib.request.urlretrieve(url,'images/'+screenName + "_" + filename)					
+
+					i=i+1
+			else:
+				print("no extended_entities")
+
+
+			print(i)
+	except requests.IncompleteRead as err:
+		print(err)
+	except urllib.HTTPError as err:
+		if(err.code == 404):
+			print("NOT FOUND 404")
+	except urllib3.ProtocolError as err:
+		print(err)
+	except requests.ChunkedEncodingError as err:
+		print(err)
+
+

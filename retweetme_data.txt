@@ -1,0 +1,284 @@
+{  
+   'favorited':False,
+   'timestamp_ms':'1525172908094',
+   'reply_count':0,
+   'in_reply_to_status_id':None,
+   'truncated':False,
+   'text':"RT @narendramodi: Congratulated N. Sikki Reddy, who was a key part of the Indian badminton contingent. She won a Bronze in the Women's Doub…",
+   'in_reply_to_status_id_str':None,
+   'source':'<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+   'filter_level':'low',
+   'id_str':'991273139568103426',
+   'retweeted_status':{  
+      'favorited':False,
+      'created_at':'Mon Apr 30 17:17:24 +0000 2018',
+      'in_reply_to_status_id':None,
+      'truncated':True,
+      'text':"Congratulated N. Sikki Reddy, who was a key part of the Indian badminton contingent. She won a Bronze in the Women'… https://t.co/y9JPWHjk6M",
+      'in_reply_to_status_id_str':None,
+      'source':'<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+      'filter_level':'low',
+      'id_str':'991003599986716672',
+      'in_reply_to_screen_name':None,
+      'entities':{  
+         'hashtags':[  
+
+         ],
+         'symbols':[  
+
+         ],
+         'user_mentions':[  
+
+         ],
+         'urls':[  
+            {  
+               'display_url':'twitter.com/i/web/status/9…',
+               'url':'https://t.co/y9JPWHjk6M',
+               'expanded_url':'https://twitter.com/i/web/status/991003599986716672',
+               'indices':[  
+                  117,
+                  140
+               ]
+            }
+         ]
+      },
+      'quote_count':16,
+      'possibly_sensitive':False,
+      'geo':None,
+      'reply_count':135,
+      'favorite_count':6818,
+      'id':991003599986716672,
+      'lang':'en',
+      'extended_tweet':{  
+         'full_text':"Congratulated N. Sikki Reddy, who was a key part of the Indian badminton contingent. She won a Bronze in the Women's Doubles event and a Gold in the Mixed Team Event. https://t.co/VhWTg9hs5M",
+         'entities':{  
+            'hashtags':[  
+
+            ],
+            'symbols':[  
+
+            ],
+            'user_mentions':[  
+
+            ],
+            'urls':[  
+
+            ],
+            'media':[  
+               {  
+                  'media_url_https':'https://pbs.twimg.com/media/DcC_mCaW0AAyX6g.jpg',
+                  'id_str':'991002578224861184',
+                  'display_url':'pic.twitter.com/VhWTg9hs5M',
+                  'indices':[  
+                     167,
+                     190
+                  ],
+                  'url':'https://t.co/VhWTg9hs5M',
+                  'type':'photo',
+                  'media_url':'http://pbs.twimg.com/media/DcC_mCaW0AAyX6g.jpg',
+                  'sizes':{  
+                     'small':{  
+                        'w':680,
+                        'h':626,
+                        'resize':'fit'
+                     },
+                     'large':{  
+                        'w':777,
+                        'h':715,
+                        'resize':'fit'
+                     },
+                     'medium':{  
+                        'w':777,
+                        'h':715,
+                        'resize':'fit'
+                     },
+                     'thumb':{  
+                        'w':150,
+                        'h':150,
+                        'resize':'crop'
+                     }
+                  },
+                  'id':991002578224861184,
+                  'expanded_url':'https://twitter.com/narendramodi/status/991003599986716672/photo/1'
+               }
+            ]
+         },
+         'extended_entities':{  
+            'media':[  
+               {  
+                  'media_url_https':'https://pbs.twimg.com/media/DcC_mCaW0AAyX6g.jpg',
+                  'id_str':'991002578224861184',
+                  'display_url':'pic.twitter.com/VhWTg9hs5M',
+                  'indices':[  
+                     167,
+                     190
+                  ],
+                  'url':'https://t.co/VhWTg9hs5M',
+                  'type':'photo',
+                  'media_url':'http://pbs.twimg.com/media/DcC_mCaW0AAyX6g.jpg',
+                  'sizes':{  
+                     'small':{  
+                        'w':680,
+                        'h':626,
+                        'resize':'fit'
+                     },
+                     'large':{  
+                        'w':777,
+                        'h':715,
+                        'resize':'fit'
+                     },
+                     'medium':{  
+                        'w':777,
+                        'h':715,
+                        'resize':'fit'
+                     },
+                     'thumb':{  
+                        'w':150,
+                        'h':150,
+                        'resize':'crop'
+                     }
+                  },
+                  'id':991002578224861184,
+                  'expanded_url':'https://twitter.com/narendramodi/status/991003599986716672/photo/1'
+               }
+            ]
+         },
+         'display_text_range':[  
+            0,
+            166
+         ]
+      },
+      'retweeted':False,
+      'user':{  
+         'following':None,
+         'profile_use_background_image':True,
+         'profile_background_color':'F4EDD4',
+         'created_at':'Sat Jan 10 17:18:56 +0000 2009',
+         'translator_type':'regular',
+         'profile_background_image_url':'http://pbs.twimg.com/profile_background_images/562185004696875009/DiiHx54g.jpeg',
+         'description':'Prime Minister of India',
+         'listed_count':22188,
+         'id_str':'18839785',
+         'profile_background_tile':False,
+         'statuses_count':19031,
+         'time_zone':'New Delhi',
+         'utc_offset':19800,
+         'favourites_count':0,
+         'default_profile_image':False,
+         'profile_image_url':'http://pbs.twimg.com/profile_images/718314968102367232/ypY1GPCQ_normal.jpg',
+         'profile_text_color':'233863',
+         'name':'Narendra Modi',
+         'default_profile':False,
+         'protected':False,
+         'is_translator':False,
+         'notifications':None,
+         'profile_banner_url':'https://pbs.twimg.com/profile_banners/18839785/1502777627',
+         'id':18839785,
+         'geo_enabled':False,
+         'profile_sidebar_border_color':'FFFFFF',
+         'lang':'en',
+         'verified':True,
+         'screen_name':'narendramodi',
+         'friends_count':1937,
+         'profile_sidebar_fill_color':'D5DFED',
+         'profile_background_image_url_https':'https://pbs.twimg.com/profile_background_images/562185004696875009/DiiHx54g.jpeg',
+         'url':'http://www.narendramodi.in',
+         'profile_image_url_https':'https://pbs.twimg.com/profile_images/718314968102367232/ypY1GPCQ_normal.jpg',
+         'follow_request_sent':None,
+         'contributors_enabled':False,
+         'location':'India',
+         'followers_count':42332398,
+         'profile_link_color':'4E7096'
+      },
+      'is_quote_status':False,
+      'display_text_range':[  
+         0,
+         140
+      ],
+      'contributors':None,
+      'retweet_count':1224,
+      'place':None,
+      'coordinates':None,
+      'in_reply_to_user_id_str':None,
+      'in_reply_to_user_id':None
+   },
+   'entities':{  
+      'hashtags':[  
+
+      ],
+      'symbols':[  
+
+      ],
+      'user_mentions':[  
+         {  
+            'id_str':'18839785',
+            'screen_name':'narendramodi',
+            'id':18839785,
+            'name':'Narendra Modi',
+            'indices':[  
+               3,
+               16
+            ]
+         }
+      ],
+      'urls':[  
+
+      ]
+   },
+   'quote_count':0,
+   'geo':None,
+   'created_at':'Tue May 01 11:08:28 +0000 2018',
+   'favorite_count':0,
+   'id':991273139568103426,
+   'lang':'en',
+   'in_reply_to_screen_name':None,
+   'retweeted':False,
+   'user':{  
+      'following':None,
+      'profile_use_background_image':False,
+      'profile_background_color':'000000',
+      'created_at':'Sat Oct 15 12:03:22 +0000 2011',
+      'translator_type':'none',
+      'profile_background_image_url':'http://abs.twimg.com/images/themes/theme1/bg.png',
+      'description':'software engineer,technology enthusiastic, Nationalist',
+      'listed_count':0,
+      'id_str':'391328480',
+      'profile_background_tile':False,
+      'statuses_count':1259,
+      'time_zone':'New Delhi',
+      'utc_offset':19800,
+      'favourites_count':1067,
+      'default_profile_image':False,
+      'profile_image_url':'http://pbs.twimg.com/profile_images/977258369655427072/TN6dHcI5_normal.jpg',
+      'profile_text_color':'000000',
+      'name':'Ramakant',
+      'default_profile':False,
+      'protected':False,
+      'is_translator':False,
+      'notifications':None,
+      'profile_banner_url':'https://pbs.twimg.com/profile_banners/391328480/1515329381',
+      'id':391328480,
+      'geo_enabled':False,
+      'profile_sidebar_border_color':'000000',
+      'lang':'en',
+      'verified':False,
+      'screen_name':'nandsiya_rk',
+      'friends_count':249,
+      'profile_sidebar_fill_color':'000000',
+      'profile_background_image_url_https':'https://abs.twimg.com/images/themes/theme1/bg.png',
+      'url':None,
+      'profile_image_url_https':'https://pbs.twimg.com/profile_images/977258369655427072/TN6dHcI5_normal.jpg',
+      'follow_request_sent':None,
+      'contributors_enabled':False,
+      'location':'Uttar Pradesh, India',
+      'followers_count':56,
+      'profile_link_color':'FF691F'
+   },
+   'is_quote_status':False,
+   'contributors':None,
+   'retweet_count':0,
+   'place':None,
+   'coordinates':None,
+   'in_reply_to_user_id_str':None,
+   'in_reply_to_user_id':None
+}

@@ -1,0 +1,284 @@
+{  
+   'timestamp_ms':'1525247317463',
+   'entities':{  
+      'symbols':[  
+
+      ],
+      'urls':[  
+
+      ],
+      'hashtags':[  
+
+      ],
+      'user_mentions':[  
+         {  
+            'screen_name':'FinMinIndia',
+            'indices':[  
+               3,
+               15
+            ],
+            'id':2613904818,
+            'name':'Ministry of Finance',
+            'id_str':'2613904818'
+         }
+      ]
+   },
+   'id_str':'991585235081940992',
+   'in_reply_to_status_id':None,
+   'lang':'en',
+   'reply_count':0,
+   'geo':None,
+   'in_reply_to_screen_name':None,
+   'quote_count':0,
+   'is_quote_status':False,
+   'in_reply_to_user_id':None,
+   'source':'<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+   'in_reply_to_status_id_str':None,
+   'coordinates':None,
+   'created_at':'Wed May 02 07:48:37 +0000 2018',
+   'text':'RT @FinMinIndia: GST collections in April 2018 exceeding Rs. 1 lakh crore is a landmark achievement and a confirmation of increased economi…',
+   'truncated':False,
+   'favorite_count':0,
+   'retweeted':False,
+   'filter_level':'low',
+   'id':991585235081940992,
+   'user':{  
+      'default_profile_image':False,
+      'profile_image_url_https':'https://pbs.twimg.com/profile_images/977258369655427072/TN6dHcI5_normal.jpg',
+      'name':'Ramakant',
+      'time_zone':'New Delhi',
+      'id_str':'391328480',
+      'listed_count':0,
+      'profile_use_background_image':False,
+      'profile_background_tile':False,
+      'screen_name':'nandsiya_rk',
+      'following':None,
+      'url':None,
+      'protected':False,
+      'verified':False,
+      'is_translator':False,
+      'followers_count':56,
+      'profile_image_url':'http://pbs.twimg.com/profile_images/977258369655427072/TN6dHcI5_normal.jpg',
+      'description':'software engineer,technology enthusiastic, Nationalist',
+      'utc_offset':19800,
+      'profile_banner_url':'https://pbs.twimg.com/profile_banners/391328480/1515329381',
+      'created_at':'Sat Oct 15 12:03:22 +0000 2011',
+      'follow_request_sent':None,
+      'default_profile':False,
+      'geo_enabled':False,
+      'translator_type':'none',
+      'friends_count':249,
+      'profile_text_color':'000000',
+      'profile_background_color':'000000',
+      'profile_background_image_url':'http://abs.twimg.com/images/themes/theme1/bg.png',
+      'profile_background_image_url_https':'https://abs.twimg.com/images/themes/theme1/bg.png',
+      'profile_link_color':'FF691F',
+      'statuses_count':1264,
+      'id':391328480,
+      'lang':'en',
+      'location':'Uttar Pradesh, India',
+      'notifications':None,
+      'profile_sidebar_border_color':'000000',
+      'favourites_count':1067,
+      'profile_sidebar_fill_color':'000000',
+      'contributors_enabled':False
+   },
+   'in_reply_to_user_id_str':None,
+   'place':None,
+   'retweet_count':0,
+   'favorited':False,
+   'contributors':None,
+   'retweeted_status':{  
+      'entities':{  
+         'symbols':[  
+
+         ],
+         'urls':[  
+            {  
+               'indices':[  
+                  116,
+                  139
+               ],
+               'url':'https://t.co/g0zuLbWNnb',
+               'display_url':'twitter.com/i/web/status/9…',
+               'expanded_url':'https://twitter.com/i/web/status/991306622873022464'
+            }
+         ],
+         'hashtags':[  
+
+         ],
+         'user_mentions':[  
+
+         ]
+      },
+      'id_str':'991306622873022464',
+      'in_reply_to_status_id':None,
+      'lang':'en',
+      'reply_count':50,
+      'geo':None,
+      'in_reply_to_status_id_str':None,
+      'quote_count':11,
+      'is_quote_status':False,
+      'in_reply_to_user_id':None,
+      'source':'<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+      'in_reply_to_screen_name':None,
+      'coordinates':None,
+      'favorited':False,
+      'created_at':'Tue May 01 13:21:31 +0000 2018',
+      'text':'GST collections in April 2018 exceeding Rs. 1 lakh crore is a landmark achievement and a confirmation of increased… https://t.co/g0zuLbWNnb',
+      'truncated':True,
+      'favorite_count':575,
+      'retweeted':False,
+      'extended_tweet':{  
+         'extended_entities':{  
+            'media':[  
+               {  
+                  'media_url_https':'https://pbs.twimg.com/media/DcHToBtW4AEx6RF.jpg',
+                  'indices':[  
+                     156,
+                     179
+                  ],
+                  'id':991306077605126145,
+                  'display_url':'pic.twitter.com/qZiFQgOxZW',
+                  'expanded_url':'https://twitter.com/FinMinIndia/status/991306622873022464/photo/1',
+                  'id_str':'991306077605126145',
+                  'sizes':{  
+                     'medium':{  
+                        'resize':'fit',
+                        'h':900,
+                        'w':1200
+                     },
+                     'large':{  
+                        'resize':'fit',
+                        'h':1536,
+                        'w':2048
+                     },
+                     'thumb':{  
+                        'resize':'crop',
+                        'h':150,
+                        'w':150
+                     },
+                     'small':{  
+                        'resize':'fit',
+                        'h':510,
+                        'w':680
+                     }
+                  },
+                  'url':'https://t.co/qZiFQgOxZW',
+                  'media_url':'http://pbs.twimg.com/media/DcHToBtW4AEx6RF.jpg',
+                  'type':'photo'
+               }
+            ]
+         },
+         'display_text_range':[  
+            0,
+            155
+         ],
+         'full_text':'GST collections in April 2018 exceeding Rs. 1 lakh crore is a landmark achievement and a confirmation of increased economic activity and better compliance: https://t.co/qZiFQgOxZW',
+         'entities':{  
+            'symbols':[  
+
+            ],
+            'urls':[  
+
+            ],
+            'hashtags':[  
+
+            ],
+            'user_mentions':[  
+
+            ],
+            'media':[  
+               {  
+                  'media_url_https':'https://pbs.twimg.com/media/DcHToBtW4AEx6RF.jpg',
+                  'indices':[  
+                     156,
+                     179
+                  ],
+                  'id':991306077605126145,
+                  'display_url':'pic.twitter.com/qZiFQgOxZW',
+                  'expanded_url':'https://twitter.com/FinMinIndia/status/991306622873022464/photo/1',
+                  'id_str':'991306077605126145',
+                  'sizes':{  
+                     'medium':{  
+                        'resize':'fit',
+                        'h':900,
+                        'w':1200
+                     },
+                     'large':{  
+                        'resize':'fit',
+                        'h':1536,
+                        'w':2048
+                     },
+                     'thumb':{  
+                        'resize':'crop',
+                        'h':150,
+                        'w':150
+                     },
+                     'small':{  
+                        'resize':'fit',
+                        'h':510,
+                        'w':680
+                     }
+                  },
+                  'url':'https://t.co/qZiFQgOxZW',
+                  'media_url':'http://pbs.twimg.com/media/DcHToBtW4AEx6RF.jpg',
+                  'type':'photo'
+               }
+            ]
+         }
+      },
+      'filter_level':'low',
+      'possibly_sensitive':False,
+      'id':991306622873022464,
+      'user':{  
+         'default_profile_image':False,
+         'profile_image_url_https':'https://pbs.twimg.com/profile_images/829993628365791232/uQ29BFxq_normal.jpg',
+         'name':'Ministry of Finance',
+         'time_zone':'Chennai',
+         'id_str':'2613904818',
+         'listed_count':1014,
+         'profile_use_background_image':False,
+         'profile_background_tile':False,
+         'screen_name':'FinMinIndia',
+         'following':None,
+         'url':'http://www.finmin.nic.in/',
+         'protected':False,
+         'verified':True,
+         'is_translator':False,
+         'followers_count':1022606,
+         'profile_image_url':'http://pbs.twimg.com/profile_images/829993628365791232/uQ29BFxq_normal.jpg',
+         'description':'Official Account of the Ministry of Finance, Government of India.',
+         'utc_offset':19800,
+         'profile_banner_url':'https://pbs.twimg.com/profile_banners/2613904818/1502552978',
+         'created_at':'Wed Jul 09 17:30:14 +0000 2014',
+         'follow_request_sent':None,
+         'default_profile':False,
+         'geo_enabled':True,
+         'translator_type':'none',
+         'friends_count':180,
+         'profile_text_color':'000000',
+         'profile_background_color':'000000',
+         'profile_background_image_url':'http://abs.twimg.com/images/themes/theme1/bg.png',
+         'profile_background_image_url_https':'https://abs.twimg.com/images/themes/theme1/bg.png',
+         'profile_link_color':'1B95E0',
+         'statuses_count':13554,
+         'id':2613904818,
+         'lang':'en',
+         'location':'New Delhi',
+         'notifications':None,
+         'profile_sidebar_border_color':'000000',
+         'favourites_count':7,
+         'profile_sidebar_fill_color':'000000',
+         'contributors_enabled':False
+      },
+      'in_reply_to_user_id_str':None,
+      'place':None,
+      'retweet_count':209,
+      'display_text_range':[  
+         0,
+         140
+      ],
+      'contributors':None
+   }
+}
