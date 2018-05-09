@@ -6,16 +6,25 @@ from urllib.parse import urlparse
 import os
 import twitter
 from http.client import IncompleteRead
-from dbop import SQLiteDB as db 
-
+from dbop import SQLiteDB as db
+from sklearn.externals import joblib
+from imageclssification import ImageClS
+import shutil
+from firebase.Pfirebase import FirebaseDB
 import time
+import datetime
 
 os.chdir(r"/home/ramakant/Desktop/Twitter_GovWok/")
 
 current_milli_time = lambda: int(round(time.time() * 1000))
 
+classifier = ImageClS("tmc_lbp_model.pkl","tmc_hog_model.pkl")
 
 conn = db.create_connection('ebite.sqlite')
+
+#firebase initialization 
+fdb = FirebaseDB()
+fdb.initializeFirebase()
 
 def getfilename(url):
 	url_path = urlparse(url).path
@@ -140,14 +149,15 @@ while(1):
 													print("Video File Already Exists {} {}".format(screenName,filename))
 												else:
 													print("video downloding")
-													urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+													# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
 
 									# video_url = videoInfo['variants'][3]['url']
 									# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + str(i) + ".mp4")
 								else:
 									filename = getfilename(url)
-									path = 'images/'+screenName + "_" + filename
-									if(os.path.exists(path) == True):
+									path = 'images/positive/'+screenName + "_" + filename
+									nagativepath = 'images/negative/'+screenName + "_" + filename
+									if(os.path.exists(path) == True or os.path.exists(nagativepath) == True):
 										print("Image File Already Exists {} {}".format(screenName,filename))
 									else:
 										db.create_photos_table(conn)
@@ -155,9 +165,31 @@ while(1):
 										ttext = retweet['full_text']
 										date = tweet['created_at']
 										photo = (str(url),localurl,str(ttext),screenName,date)
-										rowid = db.insert_photo(conn,photo)
-										print("rowid",rowid)
-										# urllib.request.urlretrieve(url,localurl)									
+										# rowid = db.insert_photo(conn,photo)
+										# print("rowid",rowid)
+										urllib.request.urlretrieve(url,"temp.jpg")#localurl
+										# print(photo)
+										# lbpresult = classifier.hasTextLBP("temp.jpg")
+										hogresult = classifier.hasTextHOG("temp.jpg")
+										print(hogresult)
+										if(hogresult == 'positive'):
+											# os.rename('temp.jpg',path)
+											shutil.copy('temp.jpg', path)
+											firebase_item = {}
+											firebase_item['imageTweet'] = ttext
+											firebase_item['imageTweetHandle'] = screenName
+											firebase_item['imageUrl'] = url
+											firebase_item['tweetTime'] = date
+											firebase_item['systemTime'] = str(datetime.datetime.now())
+											nodename = ((screenName + '_' + filename).split('.'))[0]
+											# print(firebase_item)
+											fdb.insertTweet(nodename,firebase_item)
+										else:
+											# os.rename('temp.jpg',nagativepath)
+											#shutil.copy('temp.jpg', nagativepath)
+											print("negative image")
+
+								
 								i=i+1
 						else:
 							print("no media extended_tweet")		
@@ -192,7 +224,8 @@ while(1):
 									if(os.path.exists(path) == True):
 										print("Video File Already Exists {} {}".format(screenName,filename))
 									else:
-										urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
+										print("video downloding")
+										# urllib.request.urlretrieve(video_url,'videos/'+screenName + "_" + filename)
 
 
 						# video_url = videoInfo['variants'][3]['url']
@@ -217,8 +250,8 @@ while(1):
 							if 'created_at' in line['extended_entities']:
 								date = line['extended_entities']['created_at']
 							photo = (str(url),localurl,str(ttext),screenName,date)
-							rowid = db.insert_photo(conn,photo)
-							print("rowid",rowid)
+							# rowid = db.insert_photo(conn,photo)
+							# print("rowid",rowid)
 							# urllib.request.urlretrieve(url,localurl)					
 
 					i=i+1
@@ -227,14 +260,14 @@ while(1):
 
 
 			print(i)
-	except requests.IncompleteRead as err:
+	except urllib.IncompleteRead as err:
 		print(err)
 	except urllib.HTTPError as err:
 		if(err.code == 404):
 			print("NOT FOUND 404")
 	except urllib3.ProtocolError as err:
 		print(err)
-	except requests.ChunkedEncodingError as err:
+	except urllib.ChunkedEncodingError as err:
 		print(err)
 db.closedb(conn)
 

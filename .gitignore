@@ -2,3 +2,6 @@ images/
 videos/
 c_images/
 ebite.sqlite
+Twitter_GovWok/model_generation/images
+tmc_hog_model.pkl
+tmc_lbp_model.pkl
